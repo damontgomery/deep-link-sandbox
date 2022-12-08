@@ -12,7 +12,7 @@
   </style>
   <script>
     function javascriptRedirect() {
-      window.location = 'intercept.html';
+      window.location = 'http://deep-link-sandbox-intercept.local/intercept.html';
     }
     document.addEventListener('DOMContentLoaded', () => {
       const javascriptRedirectButton = document.querySelector('#javascript-redirect');
@@ -23,7 +23,7 @@
 
 <body>
   <h1>Deep linking landing page</h1>
-  <p><a href="intercept.html">Open the intercept page</a></p>
+  <p><a href="http://deep-link-sandbox-intercept.local/intercept.html">Open the intercept page</a></p>
   <!-- The documentation seems to suggest we need the autoVerify attribute on the link, but I don't think that is the case. -->
   <!-- <a href="intercept.html" autoVerify>Open the intercept page with Android attribute</a> -->
   <p><button id="javascript-redirect">Open the intercept page with Javascript</button></p>

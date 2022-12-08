@@ -15,6 +15,7 @@ edit `/etc/hosts`
 ```
 # Deep link sandbox
 127.0.0.1 deep-link-sandbox.local
+127.0.0.1 deep-link-sandbox-intercept.local
 # End of deep link sandbox
 ```
 
