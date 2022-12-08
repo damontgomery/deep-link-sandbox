@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Deep linking landing page</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+    }
+  </style>
+  <script>
+    function javascriptRedirect() {
+      window.location = 'intercept.html';
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const javascriptRedirectButton = document.querySelector('#javascript-redirect');
+      javascriptRedirectButton.addEventListener('click', javascriptRedirect);
+    });
+  </script>
+</html>
+
+<body>
+  <h1>Deep linking landing page</h1>
+  <p><a href="intercept.html">Open the intercept page</a></p>
+  <!-- The documentation seems to suggest we need the autoVerify attribute on the link, but I don't think that is the case. -->
+  <!-- <a href="intercept.html" autoVerify>Open the intercept page with Android attribute</a> -->
+  <p><button id="javascript-redirect">Open the intercept page with Javascript</button></p>
+  <p><a href="server-redirect">Open the intercept page with a server redirect</a></p>
+</body>
+
+</html>
