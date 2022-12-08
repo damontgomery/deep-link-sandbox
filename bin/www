@@ -6,20 +6,28 @@
 
 var app = require('../app');
 var debug = require('debug')('deep-link-sandbox:server');
-var http = require('http');
+// var http = require('http');
+var https = require('https');
+var fs = require('fs');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '80');
+var port = normalizePort(process.env.PORT || '443');
 app.set('port', port);
+
+const serverOptions = {
+  key: fs.readFileSync('certs/key.pem'),
+  cert: fs.readFileSync('certs/cert.pem'),
+};
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+// var server = http.createServer(app);
+var server = https.createServer(serverOptions, app);
 
 /**
  * Listen on provided port, on all network interfaces.
