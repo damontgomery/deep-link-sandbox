@@ -25,7 +25,7 @@ edit `public/index.html` to set the hostedDomains.
 
 ## How to use
 
-`DEBUG=deep-link-sandbox:& yarn start`
+`DEBUG=deep-link-sandbox:* yarn start`
 
 open [http://deep-link-sandbox.local](deep-link-sandbox.local)
 
