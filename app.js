@@ -16,6 +16,10 @@ app.get('/server-redirect-local', function(req, res) {
   res.redirect('https://deep-link-sandbox-intercept.local/intercept.html');
 });
 
+app.get('/server-redirect-uri', function(req, res) {
+  res.redirect('deep-link-sandbox:/example-link');
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

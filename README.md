@@ -45,9 +45,18 @@ Similar to iOS, you need to create a `.well-known/assetlinks.json` file and uplo
 
 Use `keytool -list -v -keystore android/app/debug.keystore` to get the SHA256 fingerprint used in `assetlinks.json`.
 
-You may be able to edit the Android hosts file with something like the following, but I didn't have luck with getting the file to not revert on reboot.
+You may be able to edit the Android hosts file with something like the following.
+
+Lines to add
+```
+10.0.2.2        deep-link-sandbox.local
+10.0.2.2        deep-link-sandbox-intercept.local
+```
+
+*The following was only done once and it seemed kind of inconsistent, so it's worth trying it / restarting to see what works.*
 
 ```
+# This leaves the emulator open in a tab, which is different than how react native normally launches the emulator.
 emulator -writable-system @Pixel_3a_API_33_x86_64
 
 adb root
@@ -56,7 +65,7 @@ adb reboot
 adb root
 adb remount
 adb pull /etc/hosts
-# edit and set any 127.0.0.1 to 10.0.2.2
+# edit `hosts`
 adb push ./local.file /remote-location
 adb reboot
 ```
