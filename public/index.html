@@ -12,23 +12,31 @@
     }
   </style>
   <script>
-    function javascriptRedirect() {
-      window.location = 'https://deep-link-sandbox-intercept.local/intercept.html';
+    function javascriptRedirect(event) {
+      window.location = event.target.getAttribute('data-href');
     }
     document.addEventListener('DOMContentLoaded', () => {
-      const javascriptRedirectButton = document.querySelector('#javascript-redirect');
-      javascriptRedirectButton.addEventListener('click', javascriptRedirect);
+      Array.from(document.querySelectorAll('.javascript-redirect')).forEach(javascriptRedirectButtons => {
+        javascriptRedirectButtons.addEventListener('click', javascriptRedirect);
+      });
     });
   </script>
 </html>
 
 <body>
   <h1>Deep linking landing page</h1>
-  <p><a href="https://deep-link-sandbox-intercept.local/intercept.html">Open the intercept page</a></p>
+  <h2>iDev</h2>
+  <p><a href="https://placeholder.com/intercept.html">Open the intercept page</a></p>
   <!-- The documentation seems to suggest we need the autoVerify attribute on the link, but I don't think that is the case. -->
   <!-- <a href="intercept.html" autoVerify>Open the intercept page with Android attribute</a> -->
-  <p><button id="javascript-redirect">Open the intercept page with Javascript</button></p>
+  <p><button class="javascript-redirect" data-href="https://placeholder.com/intercept.html">Open the intercept page with Javascript</button></p>
   <p><a href="server-redirect">Open the intercept page with a server redirect</a></p>
+  <h2>Local</h2>
+  <p><a href="https://deep-link-sandbox-intercept.local/intercept.html">Open the intercept page</a></p>
+  <!-- The documentation seems to suggest we need the autoVerify attribute on the link, but I don't think that is the case. -->
+  <!-- <a href="https://deep-link-sandbox-intercept.local/intercept.html" autoVerify>Open the intercept page with Android attribute</a> -->
+  <p><button class="javascript-redirect" data-href="https://deep-link-sandbox-intercept.local/intercept.html">Open the intercept page with Javascript</button></p>
+  <p><a href="server-redirect-local">Open the intercept page with a server redirect</a></p>
 </body>
 
 </html>

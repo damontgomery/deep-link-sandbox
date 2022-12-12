@@ -4,11 +4,15 @@ var path = require('path');
 
 var app = express();
 
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+const hostedDomain = 'placeholder.com';
+
 app.get('/server-redirect', function(req, res) {
+  res.redirect(`https://${hostedDomain}/intercept.html`);
+});
+
+app.get('/server-redirect-local', function(req, res) {
   res.redirect('https://deep-link-sandbox-intercept.local/intercept.html');
 });
 
