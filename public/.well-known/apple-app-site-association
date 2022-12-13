@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "placeholder.placeholder",
+        "paths": [
+          "/deep-link",
+          "/deep-link/*"
+        ]
+      }
+    ]
+  }
+}
