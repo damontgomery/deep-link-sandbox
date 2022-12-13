@@ -7,13 +7,18 @@ var app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 const hostedDomain = 'placeholder.com';
+const deepLinkLandingPagePath = 'deep-link';
+
+app.get(`/${deepLinkLandingPagePath}`, function(req, res) {
+  res.redirect(`https://deep-link-sandbox.local/${deepLinkLandingPagePath}.html`);
+});
 
 app.get('/server-redirect', function(req, res) {
-  res.redirect(`https://${hostedDomain}/intercept.html`);
+  res.redirect(`https://${hostedDomain}/${deepLinkLandingPagePath}`);
 });
 
 app.get('/server-redirect-local', function(req, res) {
-  res.redirect('https://deep-link-sandbox-intercept.local/intercept.html');
+  res.redirect(`https://deep-link-sandbox-intercept.local/${deepLinkLandingPagePath}`);
 });
 
 app.get('/server-redirect-uri', function(req, res) {

@@ -53,7 +53,7 @@ Lines to add
 10.0.2.2        deep-link-sandbox-intercept.local
 ```
 
-*The following was only done once and it seemed kind of inconsistent, so it's worth trying it / restarting to see what works.*
+*The following was only done once and it seemed kind of inconsistent, so it's worth trying it / restarting to see what works. It seems to keep the hosts edits if opened from the command line, but not if opened from Android Studio. If you go back to Android Studio, they are gone and then command line and they are there.*
 
 ```
 # This leaves the emulator open in a tab, which is different than how react native normally launches the emulator.
